@@ -19,12 +19,13 @@ class CardsProduct extends React.Component {
 
   render() {
     let { image, price, id } = this.props.Product;
+    console.log("🚀 ~ file: cardProduct.jsx:22 ~ CardsProduct ~ render ~ this.props.Product:", this.props.Product)
 
     return (
       <div className="cardsProduct">
         <Photo img={image} />
         <Price price={price} />
-        <Btn productId={id} cb={this.addToBasket} />
+        <Btn productId={this.props.Product} cb={this.addToBasket} />
       </div>
     );
   }

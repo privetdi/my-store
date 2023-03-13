@@ -12,20 +12,21 @@ function Basket(props) {
     props.ActionRemoveToBasket(id);
   };
   //использовать map set
-  let listProduct = new Map();
-  props.catalo.forEach(item => {
-    listProduct.set(item.id, item) 
-  });
-  console.log("basket", props)
+
+
   return (
     <div className="basketList">
       {Array.isArray(props.basketId) ? (
-        props.basketId.map((item) => 
+        props.basketId.map((item) =>{
+/*           arr.filter(function(number) {
+            return number > 0;
+          }); */
+          return (
         <>
-        <Photo img={listProduct.get(item).image} />
-        <Price price={listProduct.get(item).price} />
-        <Btn productId={listProduct.get(item).id} cb={removeToBasket} />
-        </>
+        <Photo img={item.image} />
+        <Price price={item.price} />
+        <Btn productId={item.id} cb={removeToBasket} />
+        </>)}
         )
       ) : (
         <>{"basket null"}</>
