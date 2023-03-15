@@ -1,15 +1,17 @@
 import React from "react";
 import CardsProduct from "../../component/product/cardProduct";
-import './catalogProduct.scss'
+import "./catalogProduct.scss";
 
 function CatalogProduct(props) {
   return (
     <div className="catalog">
       {Array.isArray(props.storProduct) ? (
-        props.storProduct.map((item) => <CardsProduct Product={item} />)
+        
+        props.storProduct[0].map((item) => <CardsProduct Product={item} />)
       ) : (
         <>{"error"}</>
       )}
+
     </div>
   );
 }

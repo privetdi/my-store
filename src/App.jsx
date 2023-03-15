@@ -33,7 +33,7 @@ class App extends React.Component {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route path="catalog" element={<CatalogProduct storProduct={this.props.testStore} />}/>
-            <Route path="basket" element={<Basket basketId={this.props.basket} catalo={this.props.testStore}/>} />
+            <Route path="basket" element={<Basket />} />
             {/*           <Route path=" *" element={<Basket />} /> */}
           </Route>
         </Routes>
@@ -44,12 +44,10 @@ class App extends React.Component {
 
 export default connect(
   (state) => ({
-    //state это стор ридакса ридакс можно небольшею логику распредить она должна вернуть обьект
     testStore: state.productList,
     basket: state.basket
   }),
   (dispatch) => ({
-    //
     onAddToDo: (item) =>
       dispatch({ type: ACTIONS.ADD_TO_DO, productList: item }),
   })

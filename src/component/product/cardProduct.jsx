@@ -14,12 +14,20 @@ class CardsProduct extends React.Component {
   }
 
   addToBasket(id) {
-    this.props.ActionAddToBasket(id);
+    //проверяем пустая ли корзина, проверяем наличие одинаковых id, добавляем +1 если добавляемый товар уже есть в корзине
+    if (this.props.basketCatalog.length > 0) {
+      if (this.props.basketCatalog.some((element) => element.id === id.id)) {
+        this.props.CountAdd(id);
+      } else {
+        this.props.ActionAddToBasket(id);
+      }
+    } else {
+      this.props.ActionAddToBasket(id);
+    }
   }
 
   render() {
-    let { image, price, id } = this.props.Product;
-    console.log("🚀 ~ file: cardProduct.jsx:22 ~ CardsProduct ~ render ~ this.props.Product:", this.props.Product)
+    let { image, price } = this.props.Product;
 
     return (
       <div className="cardsProduct">
@@ -34,10 +42,11 @@ class CardsProduct extends React.Component {
 export default connect(
   (state) => ({
     testStore: state.productList,
+    basketCatalog: state.basket,
   }),
   (dispatch) => ({
     //
-    ActionAddToBasket: (item) =>
-      dispatch({ type: ACTIONS.ADD_TO_BASKET, productId: item }),
+    ActionAddToBasket: (item) => dispatch({ type: ACTIONS.ADD_TO_BASKET, productItem: item }),
+    CountAdd: (item) => dispatch({ type: ACTIONS.COUNT_ADD, product: item }),
   })
 )(CardsProduct);
