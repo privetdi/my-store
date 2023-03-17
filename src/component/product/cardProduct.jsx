@@ -14,7 +14,7 @@ class CardsProduct extends React.Component {
   }
 
   addToBasket(id) {
-    //проверяем пустая ли корзина, проверяем наличие одинаковых id, добавляем +1 если добавляемый товар уже есть в корзине
+    //проверяем пустая ли корзина, проверяем наличие одинаковых id, добавляем +1 если данный товар уже есть в корзине
     if (this.props.basketCatalog.length > 0) {
       if (this.props.basketCatalog.some((element) => element.id === id.id)) {
         this.props.CountAdd(id);
