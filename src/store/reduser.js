@@ -5,11 +5,13 @@ const initialState = {
   item: {},
   productList: {},
   countTask: 0,
+  sumOrder: 0,
 };
 
 const reducer = (state = initialState, actions) => {
   switch (actions.type) {
     case ACTIONS.ADD_TO_BASKET:
+      actions.productItem.count = 1;
       console.log('add to basket ++++++++')
       return {
         ...state,
@@ -41,6 +43,14 @@ const reducer = (state = initialState, actions) => {
       return {
         ...state,
       };
+
+      
+      case ACTIONS.SET_SUM_ORDER:
+        return {
+          ...state,
+          sumOrder: actions.sumOrder,
+        };
+
     default:
       return state;
   }

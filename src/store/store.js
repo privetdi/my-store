@@ -5,6 +5,7 @@ export const ACTIONS = {
   REMOVE_TO_BASKET: "REMOVE_TO_BASKET",
   COUNT_ADD: "COUNT_ADD",
   COUNT_REMOVE: "COUNT_REMOVE",
+  SET_SUM_ORDER: "SET_SUM_ORDER",
 };
 
 /* export const addToDo = (productList) => {
