@@ -13,7 +13,7 @@ function Check(props) {
     
   }
 
-  props.SetSumOrder(sum());
+  props.setSumOrder(sum());
   return (
     
     <div className="checkList">
@@ -31,7 +31,7 @@ export default connect(
   }),
   (dispatch) => ({
     //
-    SetSumOrder: (sum) =>
+    setSumOrder: (sum) =>
       dispatch({ type: ACTIONS.SET_SUM_ORDER, sumOrder: sum }),
   })
 )(Check);

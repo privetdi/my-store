@@ -7,7 +7,7 @@ function CatalogProduct(props) {
     <div className="catalog">
       {Array.isArray(props.storProduct) ? (
         
-        props.storProduct[0].map((item) => <CardsProduct Product={item} />)
+        props.storProduct[0].map((item) => <CardsProduct key={item.id} Product={item} />)
       ) : (
         <>{"error"}</>
       )}
