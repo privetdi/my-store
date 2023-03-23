@@ -7,9 +7,12 @@ function Layout() {
     <>
       <header>
         <ul>
-          <li><Link to="/catalog">Catalog</Link></li>
-          <li><Link to="/basket">Basket</Link></li>
-          <li></li>
+          <li>
+            <Link to="/catalog">Catalog</Link>
+          </li>
+          <li>
+            <Link to="/basket">Basket</Link>
+          </li>
         </ul>
       </header>
       <div className="main">

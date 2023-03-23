@@ -8,9 +8,7 @@ class Price extends React.Component {
   }
 
   render() {
-
-    return  <a>{this.props.price}</a>
-    
+    return <a>{this.props.price}</a>;
   }
 }
 

@@ -8,6 +8,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import CatalogProduct from "./component/region/catalogProduct";
 import Basket from "./component/basket/basket";
 import Layout from "./component/region/layout";
+import { getActionOnAddToDo } from "./store/actionsCreator";
 
 class App extends React.Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class App extends React.Component {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
       .then((json) => {
-        this.props.onAddToDo(json);
+        this.props.ActionOnAddToDo(json);
       });
   }
 
@@ -32,9 +33,11 @@ class App extends React.Component {
       <>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route path="catalog" element={<CatalogProduct storProduct={this.props.testStore} />}/>
+            <Route
+              path="catalog"
+              element={<CatalogProduct storProducts={this.props.testStore} />}
+            />
             <Route path="basket" element={<Basket />} />
-            {/*           <Route path=" *" element={<Basket />} /> */}
           </Route>
         </Routes>
       </>
@@ -45,10 +48,9 @@ class App extends React.Component {
 export default connect(
   (state) => ({
     testStore: state.productList,
-    basket: state.basket
+    basket: state.basket,
   }),
   (dispatch) => ({
-    onAddToDo: (item) =>
-      dispatch({ type: ACTIONS.ADD_TO_DO, productList: item }),
+    ActionOnAddToDo: (item) => dispatch(getActionOnAddToDo(item)),
   })
 )(App);

@@ -1,31 +1,30 @@
 import React from "react";
-import CardsProduct from "../product/cardProduct";
 import Photo from "../product/photo";
 import Price from "../product/price";
 import Btn from "../product/button";
-import { ACTIONS } from "../../store/store";
 import { connect } from "react-redux";
 import Check from "./check";
+import { getActionRemoveFromBasket } from "../../store/actionsCreator";
 
 function Basket(props) {
-  let removeToBasket = (id) => {
-    props.ActionRemoveToBasket(id);
+  let removeFromBasket = (id) => {
+    props.ActionRemoveFromBasket(id);
   };
-  console.log("basketlist", props.basketCatalog);
   return (
     <>
       <Check />
       <div className="basketList">
-        {Array.isArray(props.basketCatalog) ? (
+        {Array.isArray(props.basketCatalog) &&
+        Object.keys(props.basketCatalog).length > 0 ? (
           props.basketCatalog.map((item) => (
             <div className="basketItem">
               <Photo img={item.image} />
               <Price price={item.price} />
-              <Btn productId={item.id} cb={removeToBasket} />
+              <Btn productId={item.id} cb={removeFromBasket} />
             </div>
           ))
         ) : (
-          <>{"basket null"}</>
+          <>basket null</>
         )}
       </div>
     </>
@@ -37,8 +36,6 @@ export default connect(
     basketCatalog: state.basket,
   }),
   (dispatch) => ({
-    //
-    ActionRemoveToBasket: (id) =>
-      dispatch({ type: ACTIONS.REMOVE_TO_BASKET, removeId: id }),
+    ActionRemoveFromBasket: (id) => dispatch(getActionRemoveFromBasket(id)),
   })
 )(Basket);

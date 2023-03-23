@@ -5,13 +5,13 @@ import "./catalogProduct.scss";
 function CatalogProduct(props) {
   return (
     <div className="catalog">
-      {Array.isArray(props.storProduct) ? (
-        
-        props.storProduct[0].map((item) => <CardsProduct key={item.id} Product={item} />)
+      {Array.isArray(props.storProducts) ? (
+        props.storProducts.map((item) => (
+          <CardsProduct key={item.id} Product={item} />
+        ))
       ) : (
-        <>{"error"}</>
+        <>error</>
       )}
-
     </div>
   );
 }

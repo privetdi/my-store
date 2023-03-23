@@ -1,5 +1,4 @@
 import React from "react";
-/* import Logo from './pingvinyi.jpg'; */
 import "./cards.scss";
 
 class Photo extends React.Component {
@@ -10,8 +9,7 @@ class Photo extends React.Component {
   }
 
   render() {
-    return <img className="photo-product" src={this.props.img} />
-    
+    return <img className="photo-product" src={this.props.img} />;
   }
 }
 
