@@ -32,7 +32,7 @@ class App extends React.Component {
     return (
       <>
         <Routes>
-          <Route path="/" element={<Layout />}>
+          <Route path="/my-store" element={<Layout />}>
             <Route
               path="catalog"
               element={<CatalogProduct storProducts={this.props.testStore} />}
