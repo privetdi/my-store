@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 function Check(props) {
   return (
     <div className="checkList">
-      <a>sum:</a>
+      <a>sum</a>
       <a>{props.sumState}</a>
     </div>
   );
