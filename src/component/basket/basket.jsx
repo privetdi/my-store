@@ -24,7 +24,7 @@ function Basket(props) {
             </div>
           ))
         ) : (
-          <>basket null</>
+          <>basket null.</>
         )}
       </div>
     </>
