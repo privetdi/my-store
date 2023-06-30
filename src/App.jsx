@@ -34,10 +34,10 @@ class App extends React.Component {
         <Routes>
           <Route path="/my-store" element={<Layout />}>
             <Route
-              path="catalog"
+              path="/my-store/catalog"
               element={<CatalogProduct storProducts={this.props.testStore} />}
             />
-            <Route path="basket" element={<Basket />} />
+            <Route path="/my-store/basket" element={<Basket />} />
           </Route>
         </Routes>
       </>

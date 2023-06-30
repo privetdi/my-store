@@ -8,10 +8,10 @@ function Layout() {
       <header>
         <ul>
           <li>
-            <Link to="/catalog">Catalog</Link>
+            <Link to="/my-store/catalog">Catalog</Link>
           </li>
           <li>
-            <Link to="/basket">Basket</Link>
+            <Link to="/my-store/basket">Basket</Link>
           </li>
         </ul>
       </header>
